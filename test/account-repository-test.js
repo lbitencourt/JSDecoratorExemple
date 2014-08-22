@@ -1,7 +1,7 @@
 'use strict'
 
 var should = require('should');
-var account_repository = require('../account-repository');
+var account_service = require( '../lib/account');
 
 
 describe('Account repository', function() {
@@ -12,24 +12,24 @@ describe('Account repository', function() {
 			name: 'fulano',
 			email: 'fulano@gmail.com'
 		};
-		account_repository.delete_all();
+		account_service.repository.delete_all();
 		done();
 	});
 
 
 	it('Add account', function(done) {
-		account_repository.add(account, function(err, account_created) {
+		account_service.repository.add(account, function(err, account_created) {
 			account_created.should.have.property('id');
 			account_created.should.have.property('name', 'fulano');
 			account_created.should.have.property('email', 'fulano@gmail.com');
 		});
 
-		account_repository.count().should.equal(1);
+		account_service.repository.count().should.equal(1);
 		done();
 	});
 
 	it('Update account', function(done) {
-		account_repository.add(account, function(err, account_created) {
+		account_service.repository.add(account, function(err, account_created) {
 			if (err) {
 				throw err;
 			}
@@ -37,7 +37,7 @@ describe('Account repository', function() {
 			account_created.name = 'ciclano';
 			account_created.email = 'ciclano@gmail.com';
 
-			account_repository.update(account_created, function(err, account_updated) {
+			account_service.repository.update(account_created, function(err, account_updated) {
 				if (err) {
 					throw err;
 				}

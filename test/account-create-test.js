@@ -1,7 +1,7 @@
 'use strict';
 
 var should = require('should');
-var account_create = require('../account-create')
+var account_service = require('../lib/account')
 
 describe('Create account', function() {
 
@@ -10,7 +10,7 @@ describe('Create account', function() {
 			name: 'Leandro',
 			email: 'bitcourt@gmail.com'
 		};
-		account_create.execute(account, function(err, data) {
+		account_service.create.execute(account, function(err, data) {
 			if (err) {
 				throw err;
 			}
@@ -22,7 +22,7 @@ describe('Create account', function() {
 
 	it('Should not be create account without required fields', function(done) {
 		var account = {};
-		account_create.execute(account, function(err) {
+		account_service.create.execute(account, function(err) {
 			err.should.have.property('message', 'name is required.');
 			done();
 		});

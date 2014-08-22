@@ -1,8 +1,7 @@
 'use strict';
 
 var should = require('should');
-var account_update = require('../account-update');
-var account_create = require('../account-create');
+var account_service = require('../lib/account');
 
 describe('Account update', function() {
 	var account;
@@ -13,7 +12,7 @@ describe('Account update', function() {
 			email: 'fulano@gmail.com'
 		};
 
-		account_create.execute(new_account, function(err, data) {
+		account_service.create.execute(new_account, function(err, data) {
 			account = data;
 			done();
 		});
@@ -23,7 +22,7 @@ describe('Account update', function() {
 		account.name = 'ciclano';
 		account.email = 'ciclano@gmail.com';
 
-		account_update.execute(account, function(err, data) {
+		account_service.update.execute(account, function(err, data) {
 			if (err) {
 				throw err;
 			}
