@@ -1,0 +1,32 @@
+{
+  "name": "JSDecoratorExemple",
+  "version": "0.0.1",
+  "description": "Usando Decorator com Javascript",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha -R spec",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lbitencourt/JSDecoratorExemple.git"
+  },
+  "keywords": [
+    "Node",
+    "Javascript",
+    "Decorator"
+  ],
+  "author": "Leandro Bitencourt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lbitencourt/JSDecoratorExemple/issues"
+  },
+  "homepage": "https://github.com/lbitencourt/JSDecoratorExemple",
+  "devDependencies": {
+    "mocha": "^1.21.4",
+    "should": "^4.0.4"
+  }
+}
